@@ -4,7 +4,7 @@ Supports:
 --------
 - SELECT
 - INSERT (UPSERT semantics)
-- UPDATE
+- UPDATE (translated to UPSERT)
 - DELETE
 
 CREATE, etc, can be added later.
@@ -28,7 +28,6 @@ To use add a property file like this to the trino catalog:
 
 connector.name=phoenix
 connection-url=jdbc:phoenix:thin:url=http://localhost:8765;serialization=protobuf
-insert.non-transactional-insert.enabled=true
 
 And make sure that in addition to Hadoop, HBase, Zookeeper, you run the Phoenix Query Server.
 (https://github.com/apache/phoenix-queryserver.git)
